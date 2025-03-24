@@ -1,0 +1,1 @@
+image/*; ~/.config/mutt/neomutt-auto_view %s; needsterminal;

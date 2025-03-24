@@ -1,0 +1,6 @@
+[[key]]
+on = "."
+exec = "toggle_hidden"
+
+[manager]
+editor = "nvim"
