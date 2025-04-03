@@ -26,7 +26,7 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle, ... }:
   let
-    configuration = { pkgs, ... }: {
+    configuration = { pkgs, config, ... }: {
 
       nixpkgs.config.allowUnfree = true;
 
@@ -34,27 +34,33 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
         [ 
-          pkgs.neovim
-
 	  # CLI
+          pkgs.neovim
 	  pkgs.eza
 	  pkgs.tldr
 	  pkgs.stow
 	  pkgs.zoxide
-
-          # SOUND
-          pkgs.telegram-desktop
-          #pkgs.supercollider
+	  pkgs.pass
+	  pkgs.gnupg
+	  pkgs.zsh
+	  pkgs.mas
+	  pkgs.yazi
+	  pkgs.mkalias
+	  pkgs.atuin
+	  pkgs.oh-my-zsh
+	  pkgs.lazydocker
+          pkgs.nodejs_22
+          pkgs.pyright
 
           # ALL
+	  pkgs.firefox
 	  pkgs.spotify
           pkgs.discord
           pkgs.disk-inventory-x
           pkgs.kitty
           pkgs.obsidian
-          pkgs.transmission_4
+          pkgs.transmission_4-qt
 
-          #pkgs.todoist 
           #pkgs.yandex-disk
           #pkgs.vlc
 
@@ -73,6 +79,10 @@
           #pkgs.exodus
           #pkgs.terra-station
           #pkgs.wasabiwallet
+          # SOUND
+          #pkgs.supercollider
+
+
 
           # Wasn't found:
 
@@ -96,17 +106,48 @@
 
         homebrew = {
           enable = true;
+	  brews = [
+	    #"mas"
+	  ];
           casks = [
             "hammerspoon"
             "karabiner-elements"
+	    "vlc"
+	    #"orbstack"
             #"vimmotion"
           ];
+	  masApps = {
+            "Telegram" = 747648890;
+	    "Remote Mouse" = 403195710;
+	    "Vimlike" = 1584519802;
+	    "Todoist" = 585829637;
+	  };
 	  onActivation.cleanup = "zap";
         };
 
         fonts.packages = [
           #(pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
         ];
+
+	system.activationScripts.applications.text = let
+	  env = pkgs.buildEnv {
+	    name = "system-applications";
+	    paths = config.environment.systemPackages;
+	    pathsToLink = "/Applications";
+	  };
+	in
+	  pkgs.lib.mkForce ''
+	    # Set up applications.
+	    echo "setting up /Applications..." >&2
+	    rm -rf /Applications/Nix\ Apps
+	    mkdir -p /Applications/Nix\ Apps
+	    find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
+	    while read -r src; do
+	      app_name=$(basename "$src")
+	      echo "copying $src" >&2
+	      ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
+	    done
+	  '';
 
       system.defaults = {
 
@@ -142,7 +183,7 @@
 
       power.sleep = {
         allowSleepByPowerButton = true;
-        display = 15;
+        display = 20;
 	computer = 120;
 	harddisk = 60;
       };
