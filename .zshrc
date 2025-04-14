@@ -75,8 +75,6 @@ export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
 #export KUBECONFIG=~/.kube/config_qa:~/.kube/config_prod
 export GIT_EDITOR='nvim +startinsert'
 
-export STARSHIP_CONFIG=~/starship/starship.toml
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -131,6 +129,7 @@ compdef __start_kubectl k
 
 eval "$(atuin init zsh)"
 eval "$(direnv hook zsh)"
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
 
 # >>> conda initialize >>>
