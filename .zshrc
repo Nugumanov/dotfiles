@@ -132,10 +132,10 @@ export STARSHIP_CONFIG=~/starship/starship.toml
 alias q=exit
 alias v='nvim'
 alias vim='nvim'
-alias vim='nvim'
 alias cl="clear"
 alias m='neomutt'
 alias lzd='lazydocker'
+alias cat='bat'
 
 #alias lt='ls --tree'
 #alias l='eza --all --long --color=always --icons=always --no-user --icons --git'
