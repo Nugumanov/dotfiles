@@ -51,6 +51,7 @@
 	  pkgs.lazydocker
           pkgs.nodejs_22
           pkgs.pyright
+          pkgs.cargo
 
           # ALL
 	  pkgs.firefox
@@ -59,11 +60,11 @@
           pkgs.disk-inventory-x
           pkgs.kitty
           pkgs.obsidian
-          pkgs.transmission_4-qt
+          #pkgs.transmission_4-qt
+          pkgs.transmission_4-qt6
+          #pkgs.transmission_4
 
           #pkgs.yandex-disk
-          #pkgs.vlc
-
           #pkgs.obs-studio
           #pkgs.openconnect
           #pkgs.puredata
@@ -74,17 +75,16 @@
           #pkgs.calibre
           #pkgs.zoom-us
 
-          # Crypto
+          # CRYPTO
           #pkgs.electrum
           #pkgs.exodus
           #pkgs.terra-station
           #pkgs.wasabiwallet
+
           # SOUND
           #pkgs.supercollider
 
-
-
-          # Wasn't found:
+          # WASN'T FOUND:
 
           # Causality
           # Explorer (sound library for samples)
@@ -211,8 +211,8 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
     darwinConfigurations."Advena-MBP" = nix-darwin.lib.darwinSystem {
-      modules = [ 
-        configuration 
+      modules = [
+        configuration
         nix-homebrew.darwinModules.nix-homebrew
         {
           nix-homebrew = {
