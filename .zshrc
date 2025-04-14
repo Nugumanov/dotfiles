@@ -100,15 +100,21 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 export PATH=~/Library/Python/3.8/bin:$PATH
 export PATH=$HOME/.docker/bin:$PATH
+export PATH=~/.local/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH
 #export PATH=/Library/Frameworks/Python.framework/Versions/3.10/bin:$PATH
+
+# Android paths
 export ANDROID_HOME=~/Library/Android/sdk
 export PATH=$ANDROID_HOME/emulator:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
-export PATH=/usr/local/go/bin:$PATH
+
 
 #export KUBECONFIG=~/.kube/config_qa:~/.kube/config_prod
 export GIT_EDITOR='nvim +startinsert'
+
+export STARSHIP_CONFIG=~/starship/starship.toml
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -167,6 +173,7 @@ fi
 
 eval "$(atuin init zsh)"
 eval "$(direnv hook zsh)"
+eval "$(starship init zsh)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
