@@ -1,6 +1,5 @@
 export TERM="xterm-256color"
 
-# If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 user_with_skull() {
@@ -26,15 +25,6 @@ user_with_skull() {
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
 
@@ -54,11 +44,8 @@ user_with_skull() {
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
         git
         zsh-autosuggestions
@@ -70,12 +57,13 @@ plugins=(
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
-export PATH=~/Library/Python/3.8/bin:$PATH
-export PATH=$HOME/.docker/bin:$PATH
+export PATH=/opt/local/bin:$PATH
+export PATH=/opt/local/sbin:$PATH
 export PATH=~/.local/bin:$PATH
-export PATH=/usr/local/go/bin:$PATH
+
+export PATH=~/Library/Python/3.8/bin:$PATH # Python paths
+export PATH=$HOME/.docker/bin:/usr/local/go/bin:$PATH # Docker paths
 #export PATH=/Library/Frameworks/Python.framework/Versions/3.10/bin:$PATH
 
 # Android paths
@@ -132,15 +120,12 @@ alias exthaste='HASTE_SERVER=https://hastebin.com haste | pbcopy && echo "Comple
 kitty-reload() {
     pkill -USR1 -f /usr/bin/kitty
 }
-cd ~
+
+#cd ~
 
 compdef __start_kubectl k
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-if [ -f ~/.env ]; then
-    source ~/.env
-fi
 
 . "$HOME/.atuin/bin/env"
 
