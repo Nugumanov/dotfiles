@@ -3,33 +3,9 @@ export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL9K_MODE="nerdfont-complete"
-
-# User with skull
 user_with_skull() {
     echo -n ""
 }
-
-POWERLEVEL9K_CUSTOM_USER="user_with_skull"
-
-# Prompt elements
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv custom_user dir vcs)
-POWERLEVEL9K_VIRTUALENV_BACKGROUND='002'
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -91,8 +67,6 @@ plugins=(
         zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -109,7 +83,6 @@ export ANDROID_HOME=~/Library/Android/sdk
 export PATH=$ANDROID_HOME/emulator:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
-
 
 #export KUBECONFIG=~/.kube/config_qa:~/.kube/config_prod
 export GIT_EDITOR='nvim +startinsert'
@@ -202,5 +175,8 @@ if [ -z "$SSH_AUTH_SOCK" ] || ! ssh-add -l &>/dev/null; then
     # Add the SSH key if it exists
     if [ -f ~/.ssh/globble_tim_rsa ]; then
         ssh-add ~/.ssh/globble_tim_rsa 2>/dev/null
+    fi
+    if [ -f ~/.ssh/globble_gitlab_rsa ]; then
+        ssh-add ~/.ssh/globble_gitlab_rsa 2>/dev/null
     fi
 fi
