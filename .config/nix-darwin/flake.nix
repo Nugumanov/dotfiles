@@ -52,6 +52,16 @@
           pkgs.nodejs_22
           pkgs.pyright
           pkgs.cargo
+          pkgs.bat
+          pkgs.starship
+          pkgs.direnv
+          # pkgs.nerdfonts
+          pkgs.infisical
+          pkgs.nmap
+          pkgs.virtualenv
+          pkgs.just
+          pkgs.lazygit
+          pkgs.fzf
 
           # ALL
 	  pkgs.firefox
