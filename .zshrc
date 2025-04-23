@@ -56,14 +56,16 @@ plugins=(
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
-export MANPATH=/opt/local/share/man:$MANPATH
-export PATH=/opt/local/bin:$PATH
-export PATH=/opt/local/sbin:$PATH
-export PATH=~/.local/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"      #
+export MANPATH=/opt/local/share/man:$MANPATH    # #
+export PATH=/opt/local/bin:$PATH                # # # System paths
+export PATH=/opt/local/sbin:$PATH               # #
+export PATH=~/.local/bin:$PATH                  #
 
-export PATH=~/Library/Python/3.8/bin:$PATH # Python paths
-export PATH=$HOME/.docker/bin:/usr/local/go/bin:$PATH # Docker paths
+export PATH=~/Library/Python/3.8/bin:$PATH      # Python paths
+export PATH=$HOME/.docker/bin:$PATH             # Docker paths
+#export PATH=/usr/local/go/bin:$PATH             # Go path
+export PATH=$HOME/go/bin:$PATH                  # Go-installed binaries, with Nix
 #export PATH=/Library/Frameworks/Python.framework/Versions/3.10/bin:$PATH
 
 # Android paths

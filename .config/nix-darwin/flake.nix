@@ -62,6 +62,7 @@
           pkgs.just
           pkgs.lazygit
           pkgs.fzf
+          pkgs.go
 
           # ALL
 	  pkgs.firefox
