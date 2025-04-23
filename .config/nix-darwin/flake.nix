@@ -55,13 +55,15 @@
           pkgs.bat
           pkgs.starship
           pkgs.direnv
-          # pkgs.nerdfonts
           pkgs.infisical
           pkgs.nmap
           pkgs.virtualenv
           pkgs.just
           pkgs.lazygit
           pkgs.fzf
+          pkgs.glab
+          pkgs.jq
+          pkgs.ripgrep # Needed for obsidian.nvim
           pkgs.go
 
           # ALL
