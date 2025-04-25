@@ -1,7 +1,12 @@
 format = """
-[     ](fg:base bg:blue)\
+[   ](fg:base bg:pink)\
+
+$python\
+[](fg:pink bg:blue)\
+
 $directory\
 [](fg:blue bg:green)\
+
 $git_branch\
 $git_status\
 [ ](fg:green bg:base)
@@ -15,9 +20,13 @@ palette = "catppuccin_macchiato"
 success_symbol = "[❯](cyan)"
 error_symbol = "[❯](red)"
 
+[skull]
+style = 'bg:pink fg:surface0'
+format = '($style)'
+
 [directory]
-style = 'bold bg:blue fg:surface0'
-format = '[$path ]($style)'
+style = 'bg:blue fg:surface0'
+format = '[ $path ]($style)'
 truncation_length = 3
 truncation_symbol = '…/'
 truncate_to_repo = false
@@ -44,7 +53,8 @@ format = '[ ♥ $time ]($style)'
 
 # LANGUAGES
 [python]
-#style = "bg:maroon"
+style = "bold bg:pink fg:surface0"
+format = '[  $virtualenv ]($style)'
 
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
