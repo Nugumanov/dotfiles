@@ -34,6 +34,12 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
         [ 
+          # SHELL
+	  pkgs.zsh
+          pkgs.starship
+          pkgs.fzf
+	  pkgs.yazi
+
 	  # CLI
           pkgs.neovim
 	  pkgs.eza
@@ -42,31 +48,33 @@
 	  pkgs.zoxide
 	  pkgs.pass
 	  pkgs.gnupg
-	  pkgs.zsh
 	  pkgs.mas
-	  pkgs.yazi
 	  pkgs.mkalias
 	  pkgs.atuin
-	  pkgs.oh-my-zsh
+          #pkgs.oh-my-zsh
 	  pkgs.lazydocker
-          pkgs.nodejs_22
-          pkgs.pyright
-          pkgs.cargo
           pkgs.bat
-          pkgs.starship
           pkgs.direnv
           pkgs.infisical
           pkgs.nmap
-          pkgs.virtualenv
           pkgs.just
           pkgs.lazygit
-          pkgs.fzf
           pkgs.glab
           pkgs.jq
           pkgs.ripgrep # Needed for obsidian.nvim
-          pkgs.go
+          pkgs.btop
 
-          # ALL
+          # Languages
+          pkgs.python311
+          pkgs.pyright
+          pkgs.virtualenv
+          pkgs.nodejs_22
+          pkgs.go
+          pkgs.cargo
+          pkgs.rustup
+          pkgs.rustc
+
+          # APPS
 	  pkgs.firefox
 	  pkgs.spotify
           pkgs.discord
@@ -121,6 +129,10 @@
           enable = true;
 	  brews = [
 	    #"mas"
+            #"orbstack"
+            #"qemu"
+            #"lima"
+            #"colima"
 	  ];
           casks = [
             "hammerspoon"
