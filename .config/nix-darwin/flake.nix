@@ -63,6 +63,8 @@
           pkgs.jq
           pkgs.ripgrep # Needed for obsidian.nvim
           pkgs.btop
+          pkgs.ncdu
+          #pkgs.supabase-cli
 
           # Languages
           pkgs.python311
