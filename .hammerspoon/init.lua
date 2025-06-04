@@ -3,9 +3,13 @@ local appShortcuts = {
   f14 = 'com.apple.Safari',
   f15 = 'net.kovidgoyal.kitty',
   f16 = 'com.hnc.Discord',
-  f17 = 'com.spotify.client',
-  f18 = 'com.toggl.daneel',
+  --f17 = 'com.spotify.client',
+  f17 = 'com.apple.mail',
+  --f18 = 'com.toggl.daneel',
+  f18 = 'ru.keepcoder.Telegram',
   f19 = 'com.apple.finder',
+  f20 = 'com.clickup.desktop-app',
+  f21 = 'com.apple.calendar',
 }
 
 for key, bundleID in pairs(appShortcuts) do
@@ -49,4 +53,3 @@ end
 
 local appWatcher = hs.application.watcher.new(applicationChanged)
 appWatcher:start()
-
