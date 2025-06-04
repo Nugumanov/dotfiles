@@ -227,15 +227,18 @@
       # $ darwin-rebuild changelog
       system.stateVersion = 6;
 
-      # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "x86_64-darwin";
+      # The platform the configuration will be used on (explicitly set).
+      nixpkgs.hostPlatform = if builtins ? currentSystem then
+        (if builtins.currentSystem == "aarch64-darwin" then "aarch64-darwin" else "x86_64-darwin")
+      else
+        "x86_64-darwin"; # Fallback for older Nix versions
     };
 
   in
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
-    darwinConfigurations."Advena-MBP" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."default" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
         nix-homebrew.darwinModules.nix-homebrew
@@ -267,7 +270,7 @@
       ];
     };
 
-    darwinPackages = self.darwinConfigurations."Advena-MBP".pkgs;
+    darwinPackages = self.darwinConfigurations."default".pkgs;
   };
 
 }
