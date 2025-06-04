@@ -33,7 +33,7 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
-        [ 
+        [
           # SHELL
 	  pkgs.zsh
           pkgs.starship
@@ -65,6 +65,7 @@
           pkgs.btop
           pkgs.ncdu
           #pkgs.supabase-cli
+          pkgs.sshfs
 
           # Languages
           pkgs.python311
@@ -126,6 +127,9 @@
           # AllMyBatteries
 
         ];
+
+        services.fuse.enable = true; # Enable FUSE kernel module
+        users.users.advena.extraGroups = [ "fuse" ]; # Add user to fuse group
 
         homebrew = {
           enable = true;
