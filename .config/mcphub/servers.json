@@ -1,15 +1,15 @@
 {
-  "nativeMCPServers": [
-    
-  ],
+  "nativeMCPServers": [],
   "mcpServers": [
-     "Сontext7": {
-       "autoApprove": [],
-       "disabled": false,
-       "timeout": 60,
-       "command": "docker",
-       "args": ["run", "-i", "--rm", "context7-mcp"],
-       "transportType": "stdio"
-     } 
+    {
+      "Context7": {
+        "autoApprove": [],
+        "disabled": false,
+        "timeout": 60,
+        "command": "docker",
+        "args": ["run", "-i", "--rm", "context7-mcp"],
+        "transportType": "stdio"
+      }
+    }
   ]
 }
