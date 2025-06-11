@@ -106,7 +106,8 @@ alias zt='eza --all --long --color=always --icons=always --no-user --tree --leve
 alias zu='eza --all --long --color=always --icons=always --group'
 
 alias icat='kitty icat'
-alias dpa='docker ps -a'
+alias dps='docker ps -a --format "table {{.ID | printf \"%.8s\"}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.RunningFor}}\t{{.Ports}}"'
+alias dpa='dps'
 alias ga='git add'
 alias gc='git commit'
 alias k='kubectl'
