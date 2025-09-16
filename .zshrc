@@ -167,3 +167,8 @@ if [ -z "$SSH_AUTH_SOCK" ] || ! ssh-add -l &>/dev/null; then
         ssh-add ~/.ssh/globble_gitlab_rsa 2>/dev/null
     fi
 fi
+
+# Task Master aliases added on 9/16/2025
+alias tm='task-master'
+alias taskmaster='task-master'
+export PATH="$HOME/.local/bin:$PATH"
