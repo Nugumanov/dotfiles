@@ -1,15 +1,16 @@
 local appShortcuts = {
-  f13 = 'md.obsidian',
-  f14 = 'com.apple.Safari',
-  f15 = 'net.kovidgoyal.kitty',
-  f16 = 'com.hnc.Discord',
-  --f17 = 'com.spotify.client',
-  f17 = 'com.apple.mail',
+  f11 = 'com.google.Chrome', -- G
+  f12 = 'com.todesktop.230313mzl4w4u92', -- A
+  f13 = 'com.brave.Browser', -- B
+  f14 = 'com.apple.Safari', -- S
+  f15 = 'net.kovidgoyal.kitty', -- K
+  f16 = 'com.hnc.Discord', -- D
+  f17 = 'com.spotify.client', -- M
+  --f17 = 'com.apple.mail', -- M
   --f18 = 'com.toggl.daneel',
-  f18 = 'ru.keepcoder.Telegram',
-  f19 = 'com.apple.finder',
-  f20 = 'com.clickup.desktop-app',
-  f21 = 'com.apple.calendar',
+  f18 = 'ru.keepcoder.Telegram', -- T
+  f19 = 'com.apple.finder', -- F
+  f20 = 'com.clickup.desktop-app', -- C
 }
 
 for key, bundleID in pairs(appShortcuts) do

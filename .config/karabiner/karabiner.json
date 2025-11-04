@@ -41,6 +41,46 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "Hyper+g to F11",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "g",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "f11" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Hyper+a to F12",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "f12" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Right Shift as Hyper Key",
                         "manipulators": [
                             {
@@ -255,7 +295,7 @@
                         ]
                     },
                     {
-                        "description": "Hyper+O to F13",
+                        "description": "Hyper+B to F13",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -266,7 +306,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "o",
+                                    "key_code": "b",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "key_code": "f13" }],
@@ -320,6 +360,7 @@
             ],
             "name": "Main profile",
             "selected": true,
+            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
         }
     ]
 }
