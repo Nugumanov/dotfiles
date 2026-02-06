@@ -14,6 +14,10 @@ local appShortcuts = {
   f20 = 'com.clickup.desktop-app', -- C
 }
 
+hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'P', function()
+  hs.application.launchOrFocusByBundleID('org.jkiss.dbeaver.core.product')
+end)
+
 for key, bundleID in pairs(appShortcuts) do
   hs.hotkey.bind({}, key, function()
     hs.application.launchOrFocusByBundleID(bundleID)
