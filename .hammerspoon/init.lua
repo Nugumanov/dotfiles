@@ -1,6 +1,7 @@
 local appShortcuts = {
   f11 = 'com.google.Chrome', -- G
-  f12 = 'com.todesktop.230313mzl4w4u92', -- A
+  --f12 = 'com.todesktop.230313mzl4w4u92', -- A
+  f12 = 'com.google.antigravity', -- A
   f13 = 'com.brave.Browser', -- B
   f14 = 'com.apple.Safari', -- S
   f15 = 'net.kovidgoyal.kitty', -- K
