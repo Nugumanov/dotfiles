@@ -20,10 +20,6 @@ palette = "catppuccin_macchiato"
 success_symbol = "[❯](cyan)"
 error_symbol = "[❯](red)"
 
-[skull]
-style = 'bg:pink fg:surface0'
-format = '($style)'
-
 [directory]
 style = 'bg:blue fg:surface0'
 format = '[ $path ]($style)'

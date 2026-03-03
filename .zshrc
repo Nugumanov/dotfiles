@@ -1,5 +1,8 @@
 export TERM="xterm-256color"
 
+# Initialize zsh completion system
+autoload -Uz compinit && compinit
+
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 user_with_skull() {
@@ -124,7 +127,11 @@ kitty-reload() {
 
 #cd ~
 
-compdef __start_kubectl k
+# kubectl completion (guarded so compdef is available)
+if (( $+commands[kubectl] )); then
+  source <(kubectl completion zsh)
+  compdef __start_kubectl k
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
