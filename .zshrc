@@ -179,3 +179,6 @@ fi
 alias tm='task-master'
 alias taskmaster='task-master'
 export PATH="$HOME/.local/bin:$PATH"
+
+# Theme toggle alias
+alias swth='~/.config/kitty/toggle-theme.sh'
