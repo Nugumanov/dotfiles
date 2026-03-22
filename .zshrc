@@ -182,3 +182,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Theme toggle alias
 alias swth='~/.config/kitty/toggle-theme.sh'
+
+# Added by Antigravity
+export PATH="/Users/advena/.antigravity/antigravity/bin:$PATH"
+
