@@ -1,3 +1,4 @@
 .config/msmtp/
 .config/mutt/
 .config/karabiner/automatic_backups/*
+.config/kitty/.theme
