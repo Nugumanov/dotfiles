@@ -135,9 +135,6 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-. "$HOME/.atuin/bin/env"
-
-eval "$(atuin init zsh)"
 eval "$(direnv hook zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
@@ -186,3 +183,6 @@ alias swth='~/.config/kitty/toggle-theme.sh'
 # Added by Antigravity
 export PATH="/Users/advena/.antigravity/antigravity/bin:$PATH"
 
+# Atuin needs to be initialized at the very end of .zshrc
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh)"
