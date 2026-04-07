@@ -136,7 +136,11 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(direnv hook zsh)"
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
+if [ -f ~/.config/starship/current-theme.toml ]; then
+  export STARSHIP_CONFIG=~/.config/starship/current-theme.toml
+else
+  export STARSHIP_CONFIG=~/.config/starship/starship.toml
+fi
 eval "$(starship init zsh)"
 
 # >>> conda initialize >>>
