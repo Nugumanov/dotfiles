@@ -2,3 +2,4 @@
 .config/mutt/
 .config/karabiner/automatic_backups/*
 .config/kitty/.theme
+.config/kitty/current-theme.conf
