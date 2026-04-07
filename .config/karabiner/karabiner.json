@@ -169,7 +169,7 @@
                         ]
                     },
                     {
-                        "description": "Hyper+c to F21",
+                        "description": "Hyper+l to F10",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -189,7 +189,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "f21"
+                                        "key_code": "f10"
                                     }
                                 ],
                                 "type": "basic"
