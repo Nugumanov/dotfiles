@@ -2,14 +2,14 @@ format = """
 [   ](fg:base bg:pink)\
 
 $python\
-[](fg:pink bg:blue)\
+[](fg:pink bg:surface1)\
 
 $directory\
-[](fg:blue bg:green)\
+[](fg:surface1 bg:sapphire)\
 
 $git_branch\
 $git_status\
-[ ](fg:green bg:base)
+[](fg:sapphire bg:base)[ ]()
 """
 
 add_newline = true
@@ -21,7 +21,7 @@ success_symbol = "[❯](cyan)"
 error_symbol = "[❯](red)"
 
 [directory]
-style = 'bg:blue fg:surface0'
+style = 'bg:surface1 fg:base'
 format = '[ $path ]($style)'
 truncation_length = 3
 truncation_symbol = '…/'
@@ -29,11 +29,11 @@ truncate_to_repo = false
 
 [git_branch]
 symbol = ""
-style = "bg:green fg:surface0"
+style = "bg:sapphire fg:base"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:green fg:surface0"
+style = "bg:sapphire fg:base"
 format = '[$all_status$ahead_behind ]($style)'
 
 [docker_context]

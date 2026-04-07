@@ -9,7 +9,7 @@ $directory\
 
 $git_branch\
 $git_status\
-[ ](fg:green bg:base)
+[](fg:green bg:base)[ ]()
 """
 
 add_newline = true
