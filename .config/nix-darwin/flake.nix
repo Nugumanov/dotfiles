@@ -82,7 +82,6 @@
 	  pkgs.spotify
           pkgs.discord
           pkgs.disk-inventory-x
-          pkgs.kitty
           pkgs.obsidian
           #pkgs.transmission_4-qt
           pkgs.transmission_4-qt6
@@ -144,6 +143,7 @@
             "hammerspoon"
             "karabiner-elements"
 	    "vlc"
+	    "kitty"
 	    #"orbstack"
             #"vimmotion"
           ];
@@ -192,7 +192,7 @@
 	dock.persistent-apps = [
 	  "/System/Applications/Mail.app"
 	  "/Applications/Safari.app"
-	  "${pkgs.kitty}/Applications/kitty.app"
+	  "/Applications/kitty.app"
 	  "${pkgs.discord}/Applications/Discord.app"
 	  "${pkgs.obsidian}/Applications/Obsidian.app"
 	];
