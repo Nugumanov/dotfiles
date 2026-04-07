@@ -59,3 +59,60 @@ end
 
 local appWatcher = hs.application.watcher.new(applicationChanged)
 appWatcher:start()
+
+-- Sync kitty/starship theme with the current macOS appearance.
+local themeStateFile = os.getenv('HOME') .. '/.config/kitty/.theme'
+local toggleThemeScript = os.getenv('HOME') .. '/.config/kitty/toggle-theme.sh'
+local appearanceNotificationName = 'AppleInterfaceThemeChangedNotification'
+
+if themeWatcher then
+  themeWatcher:stop()
+  themeWatcher = nil
+end
+
+local function readThemeState()
+  local file = io.open(themeStateFile, 'r')
+  if not file then
+    return 'dark'
+  end
+
+  local value = file:read('*l')
+  file:close()
+  return value or 'dark'
+end
+
+local function getSystemTheme()
+  local output, success = hs.execute('/usr/bin/defaults read -g AppleInterfaceStyle 2>/dev/null', true)
+  if success and output and output:match('Dark') then
+    return 'dark'
+  end
+
+  return 'light'
+end
+
+local function syncThemeWithSystem()
+  local currentTheme = readThemeState()
+  local systemTheme = getSystemTheme()
+  hs.printf('theme sync: system=%s current=%s', systemTheme, currentTheme)
+
+  if currentTheme == systemTheme then
+    hs.printf('theme sync: skip')
+    return
+  end
+
+  hs.printf('theme sync: toggling via %s', toggleThemeScript)
+  hs.task.new(toggleThemeScript, nil):start()
+end
+
+themeWatcher = hs.distributednotifications.new(function(name, object, userInfo)
+  if name ~= appearanceNotificationName then
+    return
+  end
+
+  hs.printf('theme sync: notification=%s', name)
+  syncThemeWithSystem()
+end)
+themeWatcher:start()
+
+-- Reconcile once on config load. Ongoing sync is notification-driven.
+syncThemeWithSystem()
