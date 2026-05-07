@@ -12,7 +12,8 @@ local appShortcuts = {
   f18 = 'ru.keepcoder.Telegram', -- T
   f19 = 'com.apple.finder', -- F
   f20 = 'com.clickup.desktop-app', -- C
-  f10 = 'com.openai.chat', -- L
+  f10 = 'com.anthropic.claudefordesktop', -- L
+  f9 = 'com.openai.chat', -- O
 }
 
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'P', function()
