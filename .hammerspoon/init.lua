@@ -1,7 +1,7 @@
 local appShortcuts = {
   f11 = 'com.google.Chrome', -- G
   --f12 = 'com.todesktop.230313mzl4w4u92', -- A
-  f12 = 'com.google.antigravity', -- A
+  --f12 = 'com.google.antigravity', -- A (disabled, will reassign)
   f13 = 'com.brave.Browser', -- B
   f14 = 'com.apple.Safari', -- S
   f15 = 'net.kovidgoyal.kitty', -- K
@@ -16,9 +16,22 @@ local appShortcuts = {
   f9 = 'com.openai.chat', -- O
 }
 
+-- Apps bound via Cmd+Alt+Ctrl+<letter> chords (Hammerspoon only supports F1-F20,
+-- so these use karabiner-emitted chords instead of high F-keys).
+local chordShortcuts = {
+  I = 'ai.fireflies.desktop', -- Fireflies
+  N = 'com.linear', -- Linear
+}
+
 hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, 'P', function()
   hs.application.launchOrFocusByBundleID('org.jkiss.dbeaver.core.product')
 end)
+
+for key, bundleID in pairs(chordShortcuts) do
+  hs.hotkey.bind({'cmd', 'alt', 'ctrl'}, key, function()
+    hs.application.launchOrFocusByBundleID(bundleID)
+  end)
+end
 
 for key, bundleID in pairs(appShortcuts) do
   hs.hotkey.bind({}, key, function()
