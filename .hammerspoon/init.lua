@@ -13,7 +13,7 @@ local appShortcuts = {
   f19 = 'com.apple.finder', -- F
   f20 = 'com.clickup.desktop-app', -- C
   f10 = 'com.anthropic.claudefordesktop', -- L
-  f9 = 'com.openai.chat', -- O
+  f9 = 'com.openai.codex', -- O
 }
 
 -- Apps bound via Cmd+Alt+Ctrl+<letter> chords (Hammerspoon only supports F1-F20,
